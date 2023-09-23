@@ -1,2 +1,2 @@
-# os_qemu
+# os_ucore
 nku os assignment
