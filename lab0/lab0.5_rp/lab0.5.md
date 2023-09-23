@@ -66,7 +66,7 @@ auipc指令，指令全称叫add upper immediate to PC，作用如下：
 
 需要注意的是，`csrr a0, mhartid`是一条特权指令，只能在特权级别（如M模式或S模式）下执行，而不能在用户级别（U模式）下执行。
 
-![image1](.\src\image1.png)
+![image1](./src/image1.png)
 
 通过gdb判断出此时a0存的是0x0
 
@@ -74,7 +74,7 @@ auipc指令，指令全称叫add upper immediate to PC，作用如下：
 
 ld指令是从对应地址加载64位数据到指定寄存器，24(t0）所指地址为0x1018
 
-![image2](.\src\image2.png)
+![image2](./src/image2.png)
 
 从上图中很容易看出从0x1018取8个字节数据为0x0000000080000000，存到t0寄存器中
 

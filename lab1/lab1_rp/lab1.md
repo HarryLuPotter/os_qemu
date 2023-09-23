@@ -220,7 +220,7 @@ void clock_init(void) {
 
 最终运行结果如下图所示
 
-![image1](.\src\image1.png)
+![image1](./src/image1.png)
 
 不难看出三种中断都被正常处理
 
