@@ -23,7 +23,7 @@ PMP1: 0x0000000000000000-0xffffffffffffffff (A,R,W,X)
 
 Special kernel symbols:
   entry  0xc0200036 (virtual)
-  etext  0xc02042e2 (virtual)
+  etext  0xc02043c8 (virtual)
   edata  0xc020a040 (virtual)
   end    0xc0211598 (virtual)
 Kernel executable memory footprint: 70KB
@@ -39,29 +39,102 @@ Store/AMO page fault
 page fault at 0x00000100: K/W
 check_pgfault() succeeded!
 check_vmm() succeeded.
-SWAP: manager = clock swap manager
+SWAP: manager = lru swap manager
 BEGIN check_swap: count 2, total 31661
+ mm->sm_priv c0211578 in fifo_init_mm
 setup Page Table for vaddr 0X1000, so alloc a page
 setup Page Table vaddr 0~4MB OVER!
 set up init env for check_swap begin!
 Store/AMO page fault
 page fault at 0x00001000: K/W
+
+begin accessed check----------------------------------
+end accessed check------------------------------------
+
 Store/AMO page fault
 page fault at 0x00002000: K/W
+
+begin accessed check----------------------------------
+the ppn value of the pte of the vaddress is: 0x80457  
+the visited goes to 0
+end accessed check------------------------------------
+
 Store/AMO page fault
 page fault at 0x00003000: K/W
+
+begin accessed check----------------------------------
+the ppn value of the pte of the vaddress is: 0x80457  
+the visited goes to 1
+the ppn value of the pte of the vaddress is: 0x80458  
+the visited goes to 0
+end accessed check------------------------------------
+
 Store/AMO page fault
 page fault at 0x00004000: K/W
+
+begin accessed check----------------------------------
+the ppn value of the pte of the vaddress is: 0x80457  
+the visited goes to 2
+the ppn value of the pte of the vaddress is: 0x80458  
+the visited goes to 1
+the ppn value of the pte of the vaddress is: 0x80459  
+the visited goes to 0
+end accessed check------------------------------------
+
 set up init env for check_swap over!
 Store/AMO page fault
 page fault at 0x00005000: K/W
+
+begin accessed check----------------------------------
+the ppn value of the pte of the vaddress is: 0x80457  
+the visited goes to 0
+the ppn value of the pte of the vaddress is: 0x80458  
+the visited goes to 0
+the ppn value of the pte of the vaddress is: 0x80459  
+the visited goes to 0
+the ppn value of the pte of the vaddress is: 0x8045a  
+the visited goes to 0
+end accessed check------------------------------------
+
 curr_ptr 0xffffffffc02258a8
 swap_out: i 0, store page in vaddr 0x1000 to disk swap entry 2
+
+begin accessed check----------------------------------
+the ppn value of the pte of the vaddress is: 0x80458  
+the visited goes to 1
+the ppn value of the pte of the vaddress is: 0x80459  
+the visited goes to 1
+the ppn value of the pte of the vaddress is: 0x8045a  
+the visited goes to 1
+end accessed check------------------------------------
+
 Load page fault
 page fault at 0x00001000: K/R
+
+begin accessed check----------------------------------
+the ppn value of the pte of the vaddress is: 0x80458  
+the visited goes to 2
+the ppn value of the pte of the vaddress is: 0x80459  
+the visited goes to 2
+the ppn value of the pte of the vaddress is: 0x8045a  
+the visited goes to 2
+the ppn value of the pte of the vaddress is: 0x80457  
+the visited goes to 0
+end accessed check------------------------------------
+
 curr_ptr 0xffffffffc02258f0
 swap_out: i 0, store page in vaddr 0x2000 to disk swap entry 3
 swap_in: load disk swap entry 2 with swap_page in vadr 0x1000
+
+begin accessed check----------------------------------
+the ppn value of the pte of the vaddress is: 0x80459  
+the visited goes to 3
+the ppn value of the pte of the vaddress is: 0x8045a  
+the visited goes to 3
+the ppn value of the pte of the vaddress is: 0x80457  
+the visited goes to 1
+end accessed check------------------------------------
+
 count is 1, total is 8
 check_swap() succeeded!
 ++ setup timer interrupts
